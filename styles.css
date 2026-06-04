@@ -300,15 +300,51 @@ body::before {
   font-family: "Orbitron", monospace;
   font-size: 3rem;
   color: white;
+  text-shadow:
+    0 0 8px rgba(0, 170, 255, 0.4),
+    0 0 18px rgba(0, 170, 255, 0.2);
 }
 
 .section-tag {
-  display: block;
-  font-family: "Orbitron", monospace;
-  color: rgba(0, 210, 255, 0.7);
+  display: inline-block;
+
+  padding: 6px 14px;
+
+  background: rgba(0, 100, 200, 0.15);
+
+  border: 1px solid rgba(0, 180, 255, 0.3);
+
+  color: #60c8ff;
+
+  font-family: Orbitron;
+  letter-spacing: 0.2em;
+  margin-bottom: 2rem;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+
+.about-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 2rem;
+
+  color: #60c8ff;
+
+  font-family: Orbitron;
   font-size: 0.75rem;
-  letter-spacing: 0.35em;
-  margin-bottom: 1rem;
+  letter-spacing: 0.2em;
+}
+
+.status-light {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #00ff88;
+
+  animation: blink-dot 2s infinite;
 }
 
 .about-content {
@@ -318,6 +354,76 @@ body::before {
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
   align-items: start;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem;
+
+  background: linear-gradient(
+    135deg,
+    rgba(4, 16, 38, 0.95),
+    rgba(2, 10, 28, 0.98)
+  );
+  background-image:
+    linear-gradient(rgba(0, 150, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 150, 255, 0.03) 1px, transparent 1px);
+
+  background-size: 25px 25px;
+  border: 1px solid rgba(0, 150, 255, 0.25);
+
+  clip-path: polygon(
+    0 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% 100%,
+    18px 100%,
+    0 calc(100% - 18px)
+  );
+}
+
+.about-content::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 40px;
+  right: 40px;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00aaff,
+    #00eeff,
+    #00aaff,
+    transparent
+  );
+
+  animation: pulse-line 3s infinite;
+}
+
+.about-content::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 40px;
+  right: 40px;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00aaff,
+    #00eeff,
+    #00aaff,
+    transparent
+  );
+
+  animation: pulse-line 3s infinite reverse;
 }
 
 .about-description {
@@ -332,22 +438,126 @@ body::before {
   line-height: 1.9;
 }
 
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+
+  margin-top: 1rem;
+  padding: 0.9rem 1.5rem;
+
+  text-decoration: none;
+
+  font-family: "Orbitron", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+
+  color: #00eaff;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 120, 255, 0.15),
+    rgba(0, 255, 255, 0.08)
+  );
+
+  border: 1px solid rgba(0, 220, 255, 0.4);
+
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+
+  transition: all 0.3s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.35),
+    transparent
+  );
+
+  transition: left 0.6s ease;
+}
+
+.cv-btn:hover::before {
+  left: 120%;
+}
+
+.cv-btn:hover {
+  color: white;
+
+  border-color: #00ffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 8px rgba(0, 255, 255, 0.6),
+    0 0 20px rgba(0, 200, 255, 0.4);
+}
+
 .about-info {
   display: grid;
   gap: 1rem;
 }
 
 .info-card {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 60, 120, 0.25),
+    rgba(0, 20, 50, 0.45)
+  );
+
+  border: 1px solid rgba(0, 170, 255, 0.25);
+
   padding: 1.5rem;
-  background: rgba(0, 60, 120, 0.15);
-  border: 1px solid rgba(0, 170, 255, 0.15);
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
+
+  position: relative;
+
+  overflow: hidden;
 }
 
 .info-card:hover {
   border-color: rgba(0, 210, 255, 0.5);
   transform: translateY(-4px);
+}
+
+.info-card:hover::before {
+  left: 100%;
+}
+
+.info-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 220, 255, 0.08),
+    transparent
+  );
+
+  transition: 0.6s;
 }
 
 .info-label {
@@ -525,6 +735,105 @@ body::before {
   }
 }
 
+/* ---------- Esquinas decorativas ---------- */
+.corner-tl,
+.corner-br {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #00aaff;
+  border-left: 2px solid #00aaff;
+}
+
+.corner-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #00aaff;
+  border-right: 2px solid #00aaff;
+}
+
+/* ---------- Líneas de energía ---------- */
+.energy-line-top {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00aaff,
+    #00eeff,
+    #00aaff,
+    transparent
+  );
+  animation: pulse-line 3s ease-in-out infinite;
+}
+
+.energy-line-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00aaff,
+    #00eeff,
+    #00aaff,
+    transparent
+  );
+  animation: pulse-line 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ---------- Línea de escaneo ---------- */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 220, 255, 0.4),
+    transparent
+  );
+
+  box-shadow:
+    0 0 8px rgba(0, 220, 255, 0.6),
+    0 0 16px rgba(0, 220, 255, 0.3);
+
+  animation: scan 4s linear infinite;
+
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   /* =========================
      NAVBAR
@@ -621,6 +930,10 @@ body::before {
 
   .about-description {
     text-align: center;
+  }
+
+  .cv-btn {
+    margin-inline: auto;
   }
 
   /* =========================
