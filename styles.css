@@ -249,21 +249,70 @@ body::before {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   padding: 0.9rem 1.6rem;
-  border: 1px solid rgba(0, 170, 255, 0.3);
-  color: #b7d9ff;
+
   text-decoration: none;
+
   font-family: "Orbitron", monospace;
   font-size: 0.8rem;
   letter-spacing: 0.15em;
-  transition: 0.3s;
+
+  color: #b7d9ff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 60, 120, 0.25),
+    rgba(0, 20, 50, 0.45)
+  );
+
+  border: 1px solid rgba(0, 170, 255, 0.25);
+
+  backdrop-filter: blur(10px);
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+
+.hero-secondary-btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 220, 255, 0.12),
+    transparent
+  );
+
+  transition: left 0.6s ease;
 }
 
 .hero-secondary-btn:hover {
-  border-color: #00eaff;
+  border-color: rgba(0, 210, 255, 0.6);
+
   color: white;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 10px rgba(0, 210, 255, 0.3),
+    0 0 20px rgba(0, 210, 255, 0.15);
 }
 
+.hero-secondary-btn:hover::before {
+  left: 100%;
+}
 /* =========================
    ABOUT
 ========================= */
