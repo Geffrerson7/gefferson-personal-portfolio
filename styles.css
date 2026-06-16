@@ -370,7 +370,8 @@ body::before {
   position: relative;
 }
 
-.about::before {
+.about::before,
+.projects::before {
   content: "";
   position: absolute;
   top: 0;
@@ -400,6 +401,18 @@ body::before {
   text-shadow:
     0 0 8px rgba(0, 170, 255, 0.4),
     0 0 18px rgba(0, 170, 255, 0.2);
+}
+
+.section-description {
+  max-width: 1200px;
+  margin: 2rem;
+
+  color: rgba(220, 235, 255, 0.8);
+
+  font-size: 1.1rem;
+  line-height: 1.8;
+
+  text-align: center;
 }
 
 .section-tag {
@@ -811,13 +824,14 @@ body::before {
 /* =========================
 PROJECT DETAIL
 ========================= */
-
+.electronics-page,
 .project-page {
   min-height: 100vh;
   background: #030c1a;
   color: white;
 }
 
+.electronics-hero,
 .project-hero {
   padding: 130px 2rem 80px;
   max-width: 1200px;
@@ -1619,6 +1633,17 @@ TABLET Y MOBILE
     font-size: 2.2rem;
   }
 
+  .section-description {
+    max-width: 100%;
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    padding: 0 1rem;
+
+    margin-top: 1rem;
+  }
+
   .about-description {
     text-align: center;
   }
@@ -1632,7 +1657,8 @@ TABLET Y MOBILE
   ========================= */
 
   .projects {
-    padding: 6rem 1.5rem;
+    padding: 8rem 8%;
+    position: relative;
   }
 
   .projects-grid {
@@ -1751,6 +1777,17 @@ MOBILE PEQUEÑO
 
   .section-header h2 {
     font-size: 1.8rem;
+  }
+
+  .section-description {
+    max-width: 100%;
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    padding: 0 1rem;
+
+    margin-top: 1rem;
   }
 
   .about-description p {
