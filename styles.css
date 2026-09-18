@@ -258,7 +258,7 @@ body::before {
 
 .sc2-label {
   font-family: "Orbitron", monospace;
-  font-size: 9px;
+  font-size: 1rem;
   letter-spacing: 0.2em;
   color: rgba(0, 180, 255, 0.6);
   text-transform: uppercase;
